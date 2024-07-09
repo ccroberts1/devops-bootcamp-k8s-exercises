@@ -15,7 +15,7 @@ spec:
         app: java-app
     spec:
       imagePullSecrets:
-      - name: my-registry-key
+        - name: my-registry-key
       containers:
         - name: javamysqlapp
           image: nanatwn/demo-app:mysql-app
@@ -24,22 +24,22 @@ spec:
           env:
             - name: DB_USER
               valueFrom:
-                SecretKeyRef:
+                secretKeyRef:
                   name: db-secret
                   key: db_user
             - name: DB_PWD
               valueFrom:
-                SecretKeyRef:
+                secretKeyRef:
                   name: db-secret
                   key: db_pwd
             - name: DB_NAME
               valueFrom:
-                SecretKeyRef:
+                secretKeyRef:
                   name: db-secret
                   key: db_name
             - name: DB_SERVER
               valueFrom:
-                ConfigMapKeyRef:
+                configMapKeyRef:
                   name: db-config
                   key: db_server
 ---
@@ -54,3 +54,4 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
+
