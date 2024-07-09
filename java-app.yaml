@@ -19,6 +19,7 @@ spec:
       containers:
         - name: javamysqlapp
           image: nanatwn/demo-app:mysql-app
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           env:
