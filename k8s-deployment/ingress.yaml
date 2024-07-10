@@ -1,16 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: my-java-app-ingress
+  name: java-app-ingress
 spec:
   rules:
     - host: my-java-app.com
       http:
         paths:
-          - path: /
-            pathType: Prefix
-            backend:
+          - backend:
               service:
-                name: my-java-app-internal-service
+                name: java-app-service
                 port:
                   number: 8080
+            pathType: Prefix
+            path: /
+  ingressClassName: nginx
