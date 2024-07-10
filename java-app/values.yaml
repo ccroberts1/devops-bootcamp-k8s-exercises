@@ -1,0 +1,22 @@
+appName: java-app
+appReplicas: 2
+appImage: ccroberts1/demo-app
+appVersion: mysql-app
+imagePullSecretsName: my-registry-key
+containerPort: 8080
+servicePort: 8080
+
+secretName: db-secret
+secretData:
+  DB_USER: my-user
+  DB_PWD: my-pass
+  DB_NAME: my-app-db
+
+configName: db-config
+configData:
+  DB_SERVER: my-release-mysql-primary.default
+
+ingress:
+  hostName: my-java-app.com
+  pathType: Prefix
+  path: /
