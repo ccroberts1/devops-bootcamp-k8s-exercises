@@ -25,7 +25,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: db-config
-                  key: db-server
+                  key: db_server
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
